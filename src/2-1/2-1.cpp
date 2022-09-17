@@ -3,16 +3,42 @@ using namespace std;
 
 void MightGoWrong()
 {
-    bool error = true;
+    bool error1 = false;
+    bool error2 = true;
 
-    if (error)
+    if (error1)
     {
-        throw 8;
+        throw "Something went wrong.";
     }
+    if (error2)
+    {
+        throw string("Something else went wrong.");
+    }
+}
+
+void UsesMightGoWrong()
+{
+    MightGoWrong();
 }
 
 int main()
 {
-    MightGoWrong();
+    try
+    {
+        UsesMightGoWrong();
+    }
+    catch (int e)
+    {
+        cout << "Error code: " << e << endl;
+    }
+    catch (char const* e)
+    {
+        cout << "Error message: " << e << endl;
+    }
+    catch (string& e)
+    {
+        cout << "String error message: " << e << endl;
+    }
+
     return 0;
 }
