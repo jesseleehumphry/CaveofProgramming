@@ -17,7 +17,10 @@ int main()
     {
         CanGoWrong wrong;
     }
-    catch ()
+    catch (bad_alloc& e)
+    {
+        cout << "Bad memory alloc: Cannot allocate desired memory in class Wrong" << endl;
+    }
 
     return 0;
 }
